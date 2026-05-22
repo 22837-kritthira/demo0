@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติส่วนตัว - น้องการ์ตูน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;500;700&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffebee 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Card Container */
+        .profile-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(239, 83, 80, 0.15);
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header / Cover Area */
+        .profile-header {
+            background: linear-gradient(135deg, #ff5252, #ff1744);
+            height: 140px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Avatar */
+        .avatar-container {
+            position: absolute;
+            bottom: -50px;
+            background: #ffffff;
+            padding: 6px;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .avatar-placeholder {
+            width: 100px;
+            height: 100px;
+            background-color: #ffebee;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff5252;
+            font-size: 2.5rem;
+        }
+
+        /* Content Area */
+        .profile-body {
+            padding: 70px 30px 40px 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Mitr', sans-serif;
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .nickname {
+            font-size: 1.1rem;
+            color: #ff5252;
+            font-weight: 600;
+            margin-bottom: 25px;
+            background: #ffebee;
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 20px;
+        }
+
+        /* Info List */
+        .info-list {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            background-color: #fcfcfc;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .info-item:hover {
+            background-color: #fff8f8;
+            border-color: #ffcdd2;
+        }
+
+        .info-item i {
+            font-size: 1.2rem;
+            width: 35px;
+            color: #ff5252;
+            text-align: center;
+            margin-right: 15px;
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 2px;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        /* Special style for color dots */
+        .color-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 4px;
+        }
+
+        .dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid #ddd;
+        }
+        .dot.white { background-color: #ffffff; }
+        .dot.red { background-color: #ff1744; border-color: #ff1744; }
+
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="avatar-container">
+                <div class="avatar-placeholder">
+                    <i class="fa-solid fa-face-smile-beam"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-body">
+            <h1>ด.ญ. กฤตธีรา มะโนธรรม</h1>
+            <div class="nickname">ชื่อเล่น: น้องการ์ตูน</div>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <div class="info-text">
+                        <span class="info-label">วันเกิด</span>
+                        <span class="info-value">20 พฤศจิกายน 2554</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-bowl-food"></i>
+                    <div class="info-text">
+                        <span class="info-label">อาหารที่ชอบ</span>
+                        <span class="info-value">ก๋วยเตี๋ยว 🍜</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-palette"></i>
+                    <div class="info-text">
+                        <span class="info-label">สีที่ชอบ</span>
+                        <div class="color-dots">
+                            <span class="info-value">สีขาว และ สีแดง</span>
+                            <span class="dot white" title="สีขาว"></span>
+                            <span class="dot red" title="สีแดง"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
