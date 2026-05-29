@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - Krittira Manotham</title>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>ประวัติส่วนตัว - น้องการ์ตูน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* --- Root Colors & Reset --- */
         :root {
-            --primary-red: #E63946;
-            --secondary-red: #A8222E;
-            --white: #FFFFFF;
-            --light-gray: #F8F9FA;
-            --dark-text: #1D3557;
+            --primary-red: #d32f2f;
+            --secondary-red: #ff5252;
+            --light-red: #ffebee;
+            --dark-gray: #2d3436;
+            --text-gray: #636e72;
+            --bg-color: #f5f6fa;
         }
 
         * {
@@ -23,268 +27,407 @@
         }
 
         body {
-            font-family: 'Prompt', sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* --- Print Setup (A4) --- */
-        @media print {
-            body { background: none; }
-            .a4-card {
-                box-shadow: none !important;
-                margin: 0 !important;
-                width: 210mm;
-                height: 297mm;
-            }
-            .floating-deco { display: none; } /* ซ่อนแอนิเมชันเวลาพิมพ์ */
-        }
-
-        /* --- Main Card --- */
-        .a4-card {
-            background: var(--white);
-            width: 800px;
-            max-width: 95%;
-            min-height: 1000px;
-            margin: 40px;
+        /* --- Main Profile Card (A4 Ratio Layout) --- */
+        .profile-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 800px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            position: relative;
+            box-shadow: 0 15px 35px rgba(211, 47, 47, 0.1);
+            border: 3px solid var(--primary-red);
             overflow: hidden;
+            position: relative; /* สำหรับจัดตำแหน่งน้องๆ สัตว์เลี้ยง */
+        }
+
+        /* Header Area */
+        .profile-header {
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            padding: 35px 30px;
+            color: #ffffff;
             display: flex;
-            flex-direction: column;
-            border: 2px solid var(--primary-red);
+            align-items: center;
+            gap: 25px;
+            border-bottom: 5px solid var(--light-red);
         }
 
-        /* --- Header --- */
-        .header {
-            background: var(--primary-red);
-            color: var(--white);
-            padding: 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* --- Profile Image Area --- */
-        .profile-section {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 30px;
-            padding: 40px;
-            background: linear-gradient(to bottom, #fff, #fff5f5);
-        }
-
-        .img-container {
-            width: 100%;
-            border-radius: 15px;
-            border: 4px solid var(--primary-red);
-            overflow: hidden;
-            background: #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .img-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .quote-container {
+        .avatar-box {
+            width: 90px;
+            height: 90px;
+            background: #ffffff;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
-        .quote {
-            font-size: 1.4rem;
-            color: var(--secondary-red);
-            font-weight: 600;
-            line-height: 1.4;
-            position: relative;
-            padding-left: 20px;
+        .avatar-box i {
+            font-size: 3rem;
+            color: var(--primary-red);
         }
 
-        .quote::before {
-            content: '"';
-            font-size: 4rem;
-            position: absolute;
-            left: -10px;
-            top: -20px;
-            opacity: 0.2;
+        .header-text h1 {
+            font-family: 'Mitr', sans-serif;
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.3;
         }
 
-        /* --- Body Content --- */
-        .content-grid {
+        .school-badge {
+            margin-top: 5px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 12px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- Content Layout --- */
+        .profile-content {
+            padding: 30px;
+        }
+
+        /* Grid Layout for Sections */
+        .info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 0 40px 40px 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
         }
 
-        .section {
-            background: var(--light-gray);
-            padding: 20px;
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Styling */
+        .section-box {
+            background: #ffffff;
+            border: 1px solid #f1f2f6;
             border-radius: 15px;
-            border-left: 5px solid var(--primary-red);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.01);
+            position: relative;
         }
 
         .section-title {
-            color: var(--primary-red);
-            font-size: 1.1rem;
+            font-family: 'Mitr', sans-serif;
+            font-size: 1.15rem;
+            color: #ffffff;
+            background-color: var(--primary-red);
+            padding: 6px 15px;
+            border-radius: 20px;
             margin-bottom: 15px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-        }
-
-        .info-item {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            color: var(--dark-text);
-        }
-
-        .info-item strong {
-            color: var(--secondary-red);
-        }
-
-        /* --- Skills Pills --- */
-        .pill-container {
-            display: flex;
-            flex-wrap: wrap;
             gap: 8px;
+        }
+
+        /* Detail List Styling */
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed #f1f2f6;
+            padding-bottom: 6px;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: 700;
+            color: var(--dark-gray);
+            min-width: 110px;
+            flex-shrink: 0;
+        }
+
+        .value {
+            color: var(--text-gray);
+        }
+
+        /* --- Quote Section (คติประจำใจ) --- */
+        .quote-box {
+            grid-column: span 1; /* ปรับให้อยู่ฝั่งขวาตามแบบภาพ */
+            background: var(--light-red);
+            border: 2px dashed var(--primary-red);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
             margin-top: 10px;
         }
 
+        .quote-box .title-q {
+            font-family: 'Mitr', sans-serif;
+            font-size: 1.1rem;
+            color: var(--primary-red);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .quote-box p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            font-style: italic;
+        }
+
+        /* --- Pills / Tags Styling (ทักษะ) --- */
+        .pill-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
         .pill {
-            background: var(--primary-red);
+            background-color: var(--light-red);
+            color: var(--primary-red);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(211, 47, 47, 0.15);
+            width: max-content;
+        }
+
+        /* Colors Indicator */
+        .color-preview {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            margin-left: 8px;
+        }
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid #ddd;
+        }
+        .dot.white { background-color: #fff; }
+        .dot.red { background-color: var(--primary-red); border-color: var(--primary-red); }
+
+        /* Footer */
+        .profile-footer {
+            background-color: var(--primary-red);
             color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            transition: transform 0.3s;
-        }
-
-        .pill:hover {
-            transform: scale(1.05);
-            background: var(--secondary-red);
-        }
-
-        /* --- Floating Animation --- */
-        .floating-deco {
-            position: fixed;
-            z-index: -1;
-            opacity: 0.5;
-            pointer-events: none;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .deco-1 { bottom: 10%; left: 5%; font-size: 80px; }
-        .deco-2 { top: 15%; right: 5%; font-size: 60px; color: var(--primary-red); }
-        .deco-3 { bottom: 40%; right: 2%; font-size: 40px; color: pink; }
-
-        /* --- Footer --- */
-        .footer {
-            margin-top: auto;
-            background: #f8f9fa;
-            padding: 20px;
             text-align: center;
-            font-size: 0.8rem;
-            color: #888;
-            border-top: 1px solid #eee;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-family: 'Mitr', sans-serif;
+        }
+
+        /* ========================================================
+           ✨ ANIMATIONS & CUTE ANIMALS (เป็ด, หมู, ชิวาว่า) ✨
+           ======================================================== */
+        
+        .animal-deco {
+            position: absolute;
+            font-size: 2.2rem;
+            user-select: none;
+            z-index: 10;
+            display: inline-block;
+        }
+
+        /* 🐷 น้องหมู เด้งดึ๋งๆ อยู่ตรงส่วนการศึกษา */
+        .pig-deco {
+            top: -20px;
+            right: 15px;
+            animation: bouncePig 2.5s infinite ease-in-out;
+        }
+
+        /* 🦆 น้องเป็ด เดินเตาะแตะ ส่ายไปมาตรงข้อมูลส่วนตัว */
+        .duck-deco {
+            bottom: 25px;
+            right: 20px;
+            animation: waddleDuck 3s infinite ease-in-out;
+        }
+
+        /* 🐕 น้องหมาชิวาว่า แอบโผล่และสั่นหัวดุ๊กดิ๊กตรงคติประจำใจ */
+        .chihuahua-deco {
+            bottom: -22px;
+            right: 10px;
+            animation: happyDog 1.8s infinite ease-in-out;
+        }
+
+        /* Keyframes */
+        @keyframes bouncePig {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        @keyframes waddleDuck {
+            0%, 100% { transform: rotate(-6deg) translateX(0); }
+            50% { transform: rotate(8deg) translateX(4px); }
+        }
+
+        @keyframes happyDog {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            30% { transform: scale(1.1) rotate(-5deg); }
+            60% { transform: scale(1.1) rotate(5deg); }
+        }
+
+
+        /* ========================================================
+           🖨️ A4 PRINT OPTIMIZATION (รองรับการพิมพ์และเซฟ PDF)
+           ======================================================== */
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+                display: block;
+            }
+            .profile-container {
+                box-shadow: none;
+                border: 3px solid #d32f2f !important;
+                max-width: 100%;
+                width: 100%;
+                border-radius: 0;
+            }
+            .profile-header {
+                background: linear-gradient(135deg, #b71c1c, #d32f2f) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .section-title {
+                background-color: #d32f2f !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .quote-box {
+                background: #ffebee !important;
+                border: 2px dashed #d32f2f !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .pill {
+                background: #ffebee !important;
+                border: 1px solid #d32f2f !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .dot.red {
+                background-color: #d32f2f !important;
+            }
+            /* ซ่อนแอนิเมชันตอนพิมพ์เพื่อความสะอาดเรียบร้อย */
+            .animal-deco {
+                animation: none !important;
+                opacity: 0.9;
+            }
+            .section-box {
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="floating-deco deco-1">🦆</div>
-    <div class="floating-deco deco-2"><i class="fa-solid fa-heart"></i></div>
-    <div class="floating-deco deco-3"><i class="fa-solid fa-music"></i></div>
-
-    <div class="a4-card">
-        <div class="header">
-            <h1>ด.ญ. กฤตธีรา มะโนธรรม</h1>
-            <p>นักเรียนชั้น ม.3 | โรงเรียนจอมทอง</p>
-        </div>
-
-        <div class="profile-section">
-            <div class="img-container">
-                <img src="https://storage.googleapis.com/pai-images/9140409a80e44510b06b9b32c6682664.png" alt="การ์ตูน">
+    <div class="profile-container">
+        <header class="profile-header">
+            <div class="avatar-box">
+                <i class="fa-solid fa-face-smile-wink"></i>
             </div>
-            <div class="quote-container">
-                <p class="quote">“อย่ามีหัว..ไว้ให้แค่ผมขึ้น”</p>
-                <div style="margin-top: 20px;">
-                    <div class="info-item"><strong>ชื่อเล่น:</strong> การ์ตูน</div>
-                    <div class="info-item"><strong>ภูมิลำเนา:</strong> เชียงใหม่</div>
+            <div class="header-text">
+                <h1>เด็กหญิง กฤตธีรา มะโนธรรม (การ์ตูน)</h1>
+                <div class="school-badge">
+                    <i class="fa-solid fa-school"></i> โรงเรียนจอมทอง | ชั้น ม.3
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div class="content-grid">
-            <div class="section">
-                <h2 class="section-title"><i class="fa-solid fa-user"></i> ข้อมูลทั่วไป</h2>
-                <div class="info-item"><strong>วันเกิด:</strong> อาทิตย์ 20 พ.ย. 2554</div>
-                <div class="info-item"><strong>เพศ:</strong> หญิง</div>
-                <div class="info-item"><strong>กรุ๊ปเลือด:</strong> O</div>
-                <div class="info-item"><strong>ราศี:</strong> พิจิก</div>
-                <div class="info-item"><strong>ส่วนสูง:</strong> 160 ซม.</div>
-                <div class="info-item"><strong>เพื่อนสนิท:</strong> การ์ตูน</div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title"><i class="fa-solid fa-book"></i> ด้านการเรียน</h2>
-                <div class="info-item"><strong>วิชาที่ชอบ:</strong> วิทยาศาสตร์</div>
-                <div class="info-item"><strong>วิชาที่ยาก:</strong> คอมพิวเตอร์, คณิตศาสตร์</div>
-                <div class="info-item"><strong>ชมรม:</strong> นักพฤกษศาสตร์</div>
-                <div class="info-item"><strong>อาชีพในฝัน:</strong> แพทย์ / เมเนเจอร์ของศิลปิน</div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title"><i class="fa-solid fa-heart"></i> สิ่งที่ชอบ</h2>
-                <div class="info-item"><strong>อาหารโปรด:</strong> ขนมจีนน้ำยา</div>
-                <div class="info-item"><strong>สีที่ชอบ:</strong> สีขาว และ สีแดง</div>
-                <div class="info-item"><strong>กีฬา:</strong> ว่ายน้ำ</div>
-                <div class="info-item"><strong>ซีรีส์:</strong> พี่จะตีนะเนย</div>
-                <div class="info-item"><strong>เพลง:</strong> ฟังได้ทุกแนว</div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title"><i class="fa-solid fa-star"></i> ทักษะ & งานอดิเรก</h2>
-                <div class="info-item"><strong>งานอดิเรก:</strong> ฟังเพลง, เล่นเกม, ดูยูทูป</div>
-                <div class="pill-container">
-                    <span class="pill">ดูยูทูปได้ทั้งวัน</span>
-                    <span class="pill">ทำนิ้วเป็นกะหรี่ปั๊บได้</span>
-                    <span class="pill">ใช้เงินเก่ง</span>
+        <div class="profile-content">
+            <div class="info-grid">
+                
+                <div class="section-box">
+                    <div class="animal-deco duck-deco">🦆</div>
+                    
+                    <h2 class="section-title"><i class="fa-solid fa-user"></i> ข้อมูลส่วนตัว</h2>
+                    <ul class="detail-list">
+                        <li class="detail-item"><span class="label">วันเกิด:</span><span class="value">วันอาทิตย์ที่ 20 พฤศจิกายน 2554</span></li>
+                        <li class="detail-item"><span class="label">เพศ:</span><span class="value">หญิง</span></li>
+                        <li class="detail-item"><span class="label">กรุ๊ปเลือด:</span><span class="value">O</span></li>
+                        <li class="detail-item"><span class="label">ราศี:</span><span class="value">พิจิก</span></li>
+                        <li class="detail-item"><span class="label">ภูมิลำเนา:</span><span class="value">เชียงใหม่</span></li>
+                        <li class="detail-item"><span class="label">ส่วนสูง:</span><span class="value">160 ซม.</span></li>
+                    </ul>
                 </div>
-            </div>
-        </div>
 
-        <div class="footer">
-            Profile Page Design | 2024 - Krittira Manotham
-        </div>
-    </div>
+                <div class="section-box">
+                    <div class="animal-deco pig-deco">🐷</div>
 
-</body>
+                    <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> การศึกษา & กิจกรรม</h2>
+                    <ul class="detail-list">
+                        <li class="detail-item"><span class="label">วิชาที่ชอบ:</span><span class="value">วิชา วิทยาศาสตร์</span></li>
+                        <li class="detail-item"><span class="label">วิชาที่ยาก:</span><span class="value">วิชา คอมพิวเตอร์, คณิตศาสตร์</span></li>
+                        <li class="detail-item"><span class="label">เพื่อนสนิท:</span><span class="value">การ์ตูน</span></li>
+                        <li class="detail-item"><span class="label">ชมรม/กิจกรรม:</span><span class="value">ชมรม นักพฤกษศาสตร์</span></li>
+                    </ul>
+                </div>
+
+                <div class="section-box">
+                    <h2 class="section-title"><i class="fa-solid fa-heart"></i> ความสนใจ & สิ่งที่ชอบ</h2>
+                    <ul class="detail-list">
+                        <li class="detail-item"><span class="label">ความฝัน/อาชีพ:</span><span class="value">แพทย์, เมเนเจอร์ของศิลปิน</span></li>
+                        <li class="detail-item"><span class="label">อาหารโปรด:</span><span class="value">ขนมจีนน้ำยา</span></li>
+                        <li class="detail-item">
+                            <span class="label">สีโปรด:</span>
+                            <span class="value">สีขาวและสีแดง</span>
+                            <span class="color-preview">
+                                <span class="dot white"></span>
+                                <span class="dot red"></span>
+                            </span>
+                        </li>
+                        <li class="detail-item"><span class="label">งานอดิเรก:</span><span class="value">ฟังเพลง, เล่นเกม, ดูยูทูป</span></li>
+                        <li class="detail-item"><span class="label">กีฬา:</span><span class="value">ว่ายน้ำ</span></li>
+                        <li class="detail-item"><span class="label">เพลงที่ชอบ:</span><span class="value">ได้ทุกแนว</span></li>
+                        <li class="detail-item"><span class="label">ซีรีส์/อนิเมะ:</span><span class="value">พี่จะตีนะเนย</span></li>
+                    </ul>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="section-box" style="flex: 1;">
+                        <h2 class="section-title"><i class="fa-solid fa-star"></i> ทักษะความสามารถ</h2>
+                        <div class="pill-container">
+                            <span class="pill"><i class="fa-brands fa-youtube"></i> ดูยูทูปได้ทั้งวัน</span>
+                            <span class="pill"><i class="fa-solid fa-hand"></i> สามารถทำนิ้วเป็นกระหรี่ปั๊บได้</span>
+                            <span class="pill"><i class="fa-solid fa-money-bill-wave"></i> ใช้เงินเก่ง</span>
+                        </div>
+                    </div>
+
+                    <div class="quote-box" style="position: relative;">
+                        <div class="animal-deco chihuahua-deco">🐕</div>
+                        <div class="title-q"><i class="fa-solid fa-quote-left"></i> คติประจำใจ</div>
+                        <p>"อย่ามีหัว..ไว้ให้แค่ผมขึ้น"</p>
+                    </div>
+                </div>
+
+            </div> </div> <footer class="profile-footer">
+            <i class="fa-solid fa-heart"></i> สร้างด้วยความตั้งใจสำหรับ น้องการ์ตูน
+        </footer>
+    </div> </body>
 </html>
