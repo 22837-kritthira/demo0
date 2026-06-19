@@ -62,20 +62,24 @@
         }
 
         .avatar-box {
-            width: 90px;
-            height: 90px;
+            width: 95px;
+            height: 95px;
             background: #ffffff;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            overflow: hidden; /* บังคับให้รูปภาพที่อยู่ข้างในตัดขอบเป็นทรงกลมพอดี */
+            flex-shrink: 0;
         }
 
-        .avatar-box i {
-            font-size: 3rem;
-            color: var(--primary-red);
+        /* ตกแต่งสไตล์รูปภาพโปรไฟล์ */
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ทำให้รูปภาพไม่เบี้ยวหรือผิดสัดส่วน */
         }
 
         .header-text h1 {
@@ -346,12 +350,11 @@
     </style>
 </head>
 <body>
-    <img src="https://choicemusicla.com/cdn/shop/files/RIIZE_RIIZING_LOUD_Finale_in_Seoul_Official_Merchandise_-_Good_Luck_Doll_Keyring_SOHEE_VER.webp?v=1775244524.jpg" alt="คำอธิบายรูปภาพกรณีโหลดไม่ขึ้น" width="400" height="400">
     
     <div class="profile-container">
         <header class="profile-header">
             <div class="avatar-box">
-                <i class="fa-solid fa-face-smile-wink"></i>
+                <img src="https://cdn11.bigcommerce.com/s-7uw7zc08qw/images/stencil/1280x1280/products/15888/24342/ina%2F001%2F1000010477_detail_029__34488.1745220167.jpg" alt="รูปโปรไฟล์การ์ตูน">
             </div>
             <div class="header-text">
                 <h1>เด็กหญิง กฤตธีรา มะโนธรรม (การ์ตูน)</h1>
@@ -388,8 +391,6 @@
                         <li class="detail-item"><span class="label">เพื่อนสนิท:</span><span class="value">การ์ตูน</span></li>
                         <li class="detail-item"><span class="label">ชมรม/กิจกรรม:</span><span class="value">ชมรม นักพฤกษศาสตร์</span></li>
                     </ul>
-                    
-                    <img src="ใส่ลิงก์รูปภาพของคุณตรงนี้.jpg" alt="รูปภาพกิจกรรม" style="width: 100%; height: auto; border-radius: 10px; margin-top: 15px; border: 1px solid #ddd;">
                 </div>
 
                 <div class="section-box">
